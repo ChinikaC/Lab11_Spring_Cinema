@@ -31,7 +31,7 @@ public class MovieController {
     @PostMapping
     public ResponseEntity<Movie> createMovie(@RequestBody Movie movie) {
         Movie newMovie = movieService.createMovie(movie);
-        return new ResponseEntity<>(movie, HttpStatus.CREATED);
+        return new ResponseEntity<>(newMovie, HttpStatus.CREATED);
     }
 
     @PutMapping
@@ -42,7 +42,7 @@ public class MovieController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public void deleteMovie(@PathVariable("id") long id){
+    public void deleteMovie(@PathVariable long id){
         movieService.deleteMovieById(id);
     }
 

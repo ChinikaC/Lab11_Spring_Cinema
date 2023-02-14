@@ -30,10 +30,9 @@ public class MovieService {
         return movieRepository.save(movieUpdate);
     }
 
-    public void deleteMovieById(long id){
+    public void deleteMovieById(Long id){
         movieRepository.deleteById(id);
     }
-
 
 
 
