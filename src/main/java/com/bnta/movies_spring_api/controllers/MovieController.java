@@ -33,10 +33,11 @@ public class MovieController {
     Movie newMovie = movieService.createMovie(movie);
     return new ResponseEntity<>(newMovie, HttpStatus.CREATED); }
 
-    @PatchMapping
+    @PutMapping
     public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie){
-    Movie updatedMovie = movieService.updateMovie(movie);
-    return new ResponseEntity<>(updatedMovie, HttpStatus.OK);
+    movieService.updateMovie(movie);
+    Movie movieUpdate = movieService.updateMovie(movie);
+        return new ResponseEntity<>(movieUpdate, HttpStatus.OK);
     }
 
 }

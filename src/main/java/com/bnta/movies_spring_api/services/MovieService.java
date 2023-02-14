@@ -1,5 +1,6 @@
 package com.bnta.movies_spring_api.services;
 
+import com.bnta.movies_spring_api.MoviesSpringApiApplication;
 import com.bnta.movies_spring_api.models.Movie;
 import com.bnta.movies_spring_api.repositories.MovieRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,8 @@ public class MovieService {
         return movieRepository.save(newMovie);
     }
 
-    public Movie updateMovie(Movie updatedMovie){
-        return movieRepository.save(updatedMovie);
+    public Movie updateMovie(Movie movieUpdate){
+        return movieRepository.save(movieUpdate);
     }
-
 
 }
