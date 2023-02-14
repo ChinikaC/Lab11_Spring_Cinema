@@ -26,8 +26,15 @@ public class MovieService {
         return movieRepository.save(newMovie);
     }
 
-    public Movie updateMovie(Movie movieUpdate){
+    public Movie updateMovie(Movie movieUpdate) {
         return movieRepository.save(movieUpdate);
     }
+
+    public void deleteMovieById(long id){
+        movieRepository.deleteById(id);
+    }
+
+
+
 
 }

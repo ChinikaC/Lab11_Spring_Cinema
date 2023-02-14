@@ -60,4 +60,7 @@ public class Movie {
     public void setDuration(Long duration) {
         this.duration = duration;
     }
-}
+
+
+    }
+

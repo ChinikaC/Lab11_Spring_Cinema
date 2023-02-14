@@ -13,31 +13,39 @@ import java.util.List;
 @RequestMapping(value = "/movies")
 public class MovieController {
 
-@Autowired
+    @Autowired
     private MovieService movieService;
 
-@GetMapping
-    public ResponseEntity<List<Movie>> getAllMovies(){
-    List<Movie> movies = movieService.getAllMovies();
-    return new ResponseEntity<>(movies, HttpStatus.OK);
-}
+    @GetMapping
+    public ResponseEntity<List<Movie>> getAllMovies() {
+        List<Movie> movies = movieService.getAllMovies();
+        return new ResponseEntity<>(movies, HttpStatus.OK);
+    }
 
-@GetMapping(value = "/{id}")
-    public ResponseEntity<Movie> getMovieById(@PathVariable long id){
-    Movie movie = movieService.getMovieById(id);
-    return new ResponseEntity<>(movie, HttpStatus.OK);
-}
+    @GetMapping(value = "/{id}")
+    public ResponseEntity<Movie> getMovieById(@PathVariable long id) {
+        Movie movie = movieService.getMovieById(id);
+        return new ResponseEntity<>(movie, HttpStatus.OK);
+    }
 
-@PostMapping
-     public ResponseEntity<Movie> createMovie(@RequestBody Movie movie){
-    Movie newMovie = movieService.createMovie(movie);
-    return new ResponseEntity<>(newMovie, HttpStatus.CREATED); }
+    @PostMapping
+    public ResponseEntity<Movie> createMovie(@RequestBody Movie movie) {
+        Movie newMovie = movieService.createMovie(movie);
+        return new ResponseEntity<>(movie, HttpStatus.CREATED);
+    }
 
     @PutMapping
-    public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie){
-    movieService.updateMovie(movie);
-    Movie movieUpdate = movieService.updateMovie(movie);
+    public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie) {
+        movieService.updateMovie(movie);
+        Movie movieUpdate = movieService.updateMovie(movie);
         return new ResponseEntity<>(movieUpdate, HttpStatus.OK);
     }
+
+    @DeleteMapping(value = "/{id}")
+    public void deleteMovie(@PathVariable("id") long id){
+        movieService.deleteMovieById(id);
+    }
+
+
 
 }
