@@ -5,10 +5,7 @@ import com.bnta.movies_spring_api.services.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,5 +28,15 @@ public class MovieController {
     return new ResponseEntity<>(movie, HttpStatus.OK);
 }
 
+@PostMapping
+     public ResponseEntity<Movie> createMovie(@RequestBody Movie movie){
+    Movie newMovie = movieService.createMovie(movie);
+    return new ResponseEntity<>(newMovie, HttpStatus.CREATED); }
+
+    @PatchMapping
+    public ResponseEntity<Movie> updateMovie(@RequestBody Movie movie){
+    Movie updatedMovie = movieService.updateMovie(movie);
+    return new ResponseEntity<>(updatedMovie, HttpStatus.OK);
+    }
 
 }

@@ -11,7 +11,7 @@ import java.util.List;
 public class MovieService {
 
     @Autowired
-    private MovieRepository movieRepository;
+    MovieRepository movieRepository;
 
     public List<Movie> getAllMovies(){
         return movieRepository.findAll();
@@ -19,6 +19,14 @@ public class MovieService {
 
     public Movie getMovieById(Long id){
         return movieRepository.findById(id).get();
+    }
+
+    public Movie createMovie(Movie newMovie){
+        return movieRepository.save(newMovie);
+    }
+
+    public Movie updateMovie(Movie updatedMovie){
+        return movieRepository.save(updatedMovie);
     }
 
 
