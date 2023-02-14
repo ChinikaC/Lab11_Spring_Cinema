@@ -1,24 +1,21 @@
 package com.bnta.movies_spring_api.models;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Movie {
 
     @Id
-    @GeneratedValue() // need to add a strategy in the brackets
-    private Long id;
+    @GeneratedValue()
+    private long id;
     @Column
     private String title;
     @Column
     private String rating;
     @Column
-    private Long duration;
+    private long duration;
 
-    public Movie(Long id, String title, String rating, Long duration) {
+    public Movie(long id, String title, String rating, long duration) {
         this.id = id;
         this.title = title;
         this.rating = rating;
@@ -29,11 +26,11 @@ public class Movie {
 
     }
 
-    public Long getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -53,11 +50,11 @@ public class Movie {
         this.rating = rating;
     }
 
-    public Long getDuration() {
+    public long getDuration() {
         return duration;
     }
 
-    public void setDuration(Long duration) {
+    public void setDuration(long duration) {
         this.duration = duration;
     }
 
